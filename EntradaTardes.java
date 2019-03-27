@@ -9,8 +9,7 @@ import java.time.*;
 public class EntradaTardes extends Entrada {
     private double descuento;
     
-    public EntradaTardes(int id, boolean vip, LocalDate fechaInicio, Cliente cliente) {
-        super.setId(id);
+    public EntradaTardes(boolean vip, LocalDate fechaInicio, Cliente cliente) {
         super.setVip(vip);
         super.setFechaInicio(fechaInicio);
         super.setHoraInicio(LocalTime.parse("16:00"));
@@ -24,9 +23,10 @@ public class EntradaTardes extends Entrada {
         
         if(super.isVip()) {
             precio = precio + super.getSuplementoVip()*cliente.getDescuento();
+            return precio*this.descuento;
+        } else {
+            return precio*this.descuento*FactoriaTemporadas.getPrecio(super.getFechaInicio());
         }
-        
-        return precio*this.descuento;
     }
     
     public double getDescuento() {

@@ -63,14 +63,12 @@ public class Temporada {
     }
     
     private ArrayList<IntervaloFechas> fechas;
-    private double modificadorPrecio;
     
     /**
      * Constructor for objects of class Temporada
      */
-    public Temporada(double modificadorPrecio) {
+    public Temporada() {
         this.fechas = new ArrayList<IntervaloFechas>();
-        this.modificadorPrecio = modificadorPrecio;
     }
     
     /**
@@ -98,31 +96,12 @@ public class Temporada {
      * @return      true si la fecha está en la temporada
      * @param       la fecha a comprobar
      */
-    public boolean tieneFecha(String sfecha) {
-        LocalDate fecha = LocalDate.parse(sfecha);
+    public boolean tieneFecha(LocalDate fecha) {
         for (IntervaloFechas intervalo: fechas){
             if (fecha.isAfter(intervalo.getFechaInicio().minusDays(1)) && fecha.isBefore(intervalo.getFechaFin().plusDays(1))){
                 return true;
             }
         }
         return false;
-    }
-    
-    /**
-     * Método para establecer el precio de una temporada
-     * 
-     * @param       modificador de precio
-     */
-    public void setModificadorPrecio(double modificador) {
-        this.modificadorPrecio = modificador;
-    }
-    
-    /**
-     * Método para obtener el precio de una temporada
-     * 
-     * @param       modificador de precio
-     */
-    public double getModificadorPrecio() {
-        return this.modificadorPrecio;
     }
 }

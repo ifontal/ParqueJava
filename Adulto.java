@@ -6,15 +6,12 @@
  * @version marzo de 2019
  */
 public class Adulto extends Cliente {
-    private double modDescuento;
     
     /**
      * Constructor para objetos de clase Adulto
      */
     public Adulto(int edad, double altura, double modDescuento) {
-        super.setEdad(edad); 
-        super.setAltura(altura);
-        this.modDescuento = modDescuento;
+        super(edad, altura, modDescuento);
     }
 
     public boolean setEdad(int edad) {
@@ -32,6 +29,6 @@ public class Adulto extends Cliente {
      * @return        el coeficiente de descuento del cliente 
      */
     public double getDescuento() {
-        return this.modDescuento;
+        return getModDescuento();
     }
 }

@@ -5,16 +5,13 @@
  * @version marzo de 2019
  */
 public class Niño extends Cliente {
-    private static double descuento;
-    private double modDescuento;
+    private static double descuento = 0.50;
     
     /**
      * Constructor para objetos de clase Niño
      */
     public Niño(int edad, double altura, double modDescuento) {
-        super.setEdad(edad); 
-        super.setAltura(altura);
-        this.modDescuento = modDescuento;
+        super(edad, altura, modDescuento);
     }
     
     public static void setDescuento (double d) {
@@ -39,7 +36,7 @@ public class Niño extends Cliente {
         if (super.getEdad() <= 2) {
             return 0;
         } else {
-            return this.descuento*this.modDescuento;
+            return this.descuento*getModDescuento();
         }
     }
 }

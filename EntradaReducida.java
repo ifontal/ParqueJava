@@ -11,8 +11,7 @@ import java.time.LocalTime;
 public class EntradaReducida extends Entrada {
     private double descuento;
     
-    public EntradaReducida(int id, boolean vip, LocalDate fechaInicio, Cliente cliente) {
-        super.setId(id);
+    public EntradaReducida(boolean vip, LocalDate fechaInicio, Cliente cliente) {
         super.setVip(vip);
         super.setFechaInicio(fechaInicio);
         super.setHoraInicio(LocalTime.parse("00:00"));
@@ -26,9 +25,10 @@ public class EntradaReducida extends Entrada {
         
         if(super.isVip()) {
             precio = precio + super.getSuplementoVip()*cliente.getDescuento();
+            return precio*this.descuento;
+        } else {
+            return precio*this.descuento*FactoriaTemporadas.getPrecio(super.getFechaInicio());
         }
-        
-        return precio*this.descuento;
     }
     
     public double getDescuento() {

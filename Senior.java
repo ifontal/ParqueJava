@@ -5,16 +5,13 @@
  * @version marzo de 2019
  */
 public class Senior extends Cliente {
-    private static double descuento;
-    private double modDescuento;
+    private static double descuento = 0.65;
     
     /**
      * Constructor para objetos de clase Senior
      */
     public Senior(int edad, double altura, double modDescuento) {
-        super.setEdad(edad); 
-        super.setAltura(altura);
-        this.modDescuento = modDescuento;
+        super(edad, altura, modDescuento);
     }
     
     public static void setDescuento (double d) {
@@ -36,6 +33,6 @@ public class Senior extends Cliente {
      * @return        el coeficiente de descuento del cliente 
      */
     public double getDescuento() {
-        return this.descuento*this.modDescuento;
+        return this.descuento*getModDescuento();
     }
 }

@@ -9,29 +9,10 @@ import java.time.*;
 public abstract class Entrada {
     private final double precio = 60;
     private final double suplementoVip = 50;
-    private int id;
     private boolean esVIP;
     private LocalDate fechaInicio;
     private LocalTime horaInicio;
     private Cliente clienteAsociado;
-    
-    /**
-     * Método para obtener el id de una entrada
-     * 
-     * @return      el id
-     */
-    public int getId() {
-        return this.id;
-    }
-    
-    /**
-     * Método para establecer el id de una entrada
-     * 
-     * @param       el id de la entrada
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
 
     /**
      * Método para obtener el precio de una entrada
