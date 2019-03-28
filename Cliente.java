@@ -77,4 +77,6 @@ public abstract class Cliente {
      * @return        el coeficiente de descuento total de cliente 
      */
     public abstract double getDescuento();
+    
+    public abstract Cliente getCliente();
 }

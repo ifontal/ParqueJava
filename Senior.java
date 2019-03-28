@@ -35,4 +35,8 @@ public class Senior extends Cliente {
     public double getDescuento() {
         return this.descuento*getModDescuento();
     }
+    
+    public Cliente getCliente() {
+        return null;
+    }
 }

@@ -31,4 +31,8 @@ public class Adulto extends Cliente {
     public double getDescuento() {
         return getModDescuento();
     }
+    
+    public Cliente getCliente() {
+        return null;
+    }
 }

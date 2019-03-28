@@ -11,7 +11,7 @@ public class Niño extends Cliente {
      * Constructor para objetos de clase Niño
      */
     public Niño(int edad, double altura, double modDescuento) {
-        super(edad, altura, modDescuento);
+        super(edad, altura, modDescuento);  
     }
     
     public static void setDescuento (double d) {
@@ -20,7 +20,7 @@ public class Niño extends Cliente {
     
     public boolean setEdad(int edad) {
         if (edad <= 12) {
-            super.setEdad(edad);
+            setEdad(edad);
             return true;
         } else {
             return false;
@@ -38,5 +38,9 @@ public class Niño extends Cliente {
         } else {
             return this.descuento*getModDescuento();
         }
+    }
+    
+    public Cliente getCliente() {
+        return null;
     }
 }

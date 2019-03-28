@@ -15,4 +15,8 @@ public abstract class IncrementarDescuento extends Cliente {
     public double getModDescuento() {
         return cliente.getModDescuento() * super.getModDescuento();
     }
+    
+    public Cliente getCliente() {
+        return this.cliente;
+    }
 }
