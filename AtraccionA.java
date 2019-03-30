@@ -1,13 +1,11 @@
-
 /**
- * Write a description of class AtraccionA here.
+ * Clase que implementa la atraccion a
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author: Miguel Traseira López
+ * @version marzo de 2019
  */
 
 public class AtraccionA extends Atraccion {
-    
     private static double alturaMin = 1.20;
 
     /**
@@ -17,6 +15,11 @@ public class AtraccionA extends Atraccion {
         super(6, 1, true, true);  
     }
 
+    /**
+     * Método que comprueba si un cliente está admitido
+     * 
+     * @param  el cliente
+     */
     public boolean clienteAdmitido (Cliente cliente) {
         while (cliente instanceof IncrementarDescuento) {
             cliente = cliente.getCliente();

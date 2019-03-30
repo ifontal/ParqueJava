@@ -1,20 +1,21 @@
-
 /**
- * Write a description of class Desempleado here.
+ * Clase que implementa el descuento de desempleado
  * 
- * @author (your name) 
+ * @author: Miguel Traseira López
  * @version (a version number or a date)
  */
 public class Desempleado extends IncrementarDescuento {
+    /**
+     * Constructor for objects of class Desempleado
+     */
     public Desempleado(Cliente cliente) {
         super(cliente, 0.9);
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Método para obtener el descuento
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return     el descuento 
      */
     public double getDescuento () {
         return super.getModDescuento();

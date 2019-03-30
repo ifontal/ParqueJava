@@ -1,7 +1,7 @@
 /**
  * Clase que implementa una entrada de tardes.
  * 
- * @author Miguel Traseira 
+ * @author: Miguel Traseira López
  * @version marzo de 2019
  */
 import java.time.*;
@@ -9,6 +9,9 @@ import java.time.*;
 public class EntradaTardes extends Entrada {
     private double descuento;
     
+    /**
+     * Constructor para objetos de clase EntradaTardes
+     */
     public EntradaTardes(boolean vip, LocalDate fechaInicio, Cliente cliente) {
         super.setVip(vip);
         super.setFechaInicio(fechaInicio);
@@ -17,6 +20,11 @@ public class EntradaTardes extends Entrada {
         this.descuento=0.90;
     }
     
+    /**
+     * Método para obtener el precio de una entrada de tardes
+     * 
+     * @return el precio
+     */
     public double getPrecioEntrada() {
         Cliente cliente = super.getCliente();
         double precio = super.getPrecio()*cliente.getDescuento();
@@ -29,10 +37,21 @@ public class EntradaTardes extends Entrada {
         }
     }
     
+    /**
+     * Método para obtener el descuento de una entrada de tardes
+     * 
+     * @return el descuento
+     */
     public double getDescuento() {
         return this.descuento;
     }
     
+    /**
+     * Método para fijar el descuento de una entrada de tardes
+     * 
+     * @param  el descuento
+     * @return el descuento
+     */
     public void setDescuento(double descuento) {
         this.descuento = descuento;
     }

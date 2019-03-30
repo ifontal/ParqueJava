@@ -1,8 +1,7 @@
-
 /**
- * Write a description of class FactoriaClientes here.
+ * Abstract class FactoriaClientes - Clase abstracta que se encarga de crear los clientes
  * 
- * @author (your name) 
+ * @author: Miguel Traseira López
  * @version (a version number or a date)
  */
 import java.util.ArrayList;
@@ -10,9 +9,17 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.lang.Character;
 
+
 public abstract class FactoriaClientes {
     private static ArrayList<Cliente> clientesParque = new ArrayList<Cliente>();
     
+    /**
+     * Método para obtener el cliente
+     *
+     * @param      una edad y una altura
+     * @return     un cliente niño (12 o menos años), un cliente adulto (de 13 a 64 años, ambos inclusive)
+     *             o un cliente senior (65 años o más), cada uno con sus descuentos especiales si los tiene
+     */
     public static Cliente getCliente(int edad, double altura) {
         Scanner sc = new Scanner(System.in);
 
@@ -57,6 +64,11 @@ public abstract class FactoriaClientes {
         }
     }
     
+    /**
+     * Método para almacenar los clientes del parque
+     * 
+     * @return     los clientes del parque 
+     */
     public static ArrayList<Cliente> getClientesParque() {
         return clientesParque;
     }

@@ -1,8 +1,7 @@
 /**
- * Clase abstracta Entrada - implementa una entrada genérica
+ * Abstract class Entrada - Clase abstracta que implementa una entrada genérica
  * 
- * @author: Miguel Traseira
- * Fecha: marzo de 2019
+ * @author: Miguel Traseira López
  */
 import java.time.*;
 

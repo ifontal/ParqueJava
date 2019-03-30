@@ -1,20 +1,21 @@
-
 /**
- * Write a description of class CarnetEstudiante here.
+ * Clase que implementa el descuento del carnet de estudiante
  * 
- * @author (your name) 
+ * @author: Miguel Traseira López
  * @version (a version number or a date)
  */
 public class CarnetEstudiante extends IncrementarDescuento {
+    /**
+     * Constructor para objetos de clase CarnetEstudiante
+     */
     public CarnetEstudiante(Cliente cliente) {
         super(cliente, 0.9);
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Método para obtener el descuento
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return     el descuento 
      */
     public double getDescuento () {
         return super.getModDescuento();

@@ -1,7 +1,7 @@
 /**
  * Clase que implementa una temporada de precios
  * 
- * @author: Miguel Traseira
+ * @author: Miguel Traseira López
  * @version: marzo de 2019
  */
 import java.util.ArrayList;

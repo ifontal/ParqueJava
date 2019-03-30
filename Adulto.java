@@ -1,4 +1,3 @@
-
 /**
  * Clase que implementa un cliente adulto.
  * 
@@ -13,7 +12,12 @@ public class Adulto extends Cliente {
     public Adulto(int edad, double altura, double modDescuento) {
         super(edad, altura, modDescuento);
     }
-
+    
+    /**
+     * Método para poner la edad de un cliente
+     *
+     * @return        true si la edad se encuentra entre 12 y 65, no incluídos ambos 
+     */
     public boolean setEdad(int edad) {
         if (edad > 12 || edad < 65) {
             super.setEdad(edad);
@@ -32,6 +36,11 @@ public class Adulto extends Cliente {
         return getModDescuento();
     }
     
+    /**
+     * Método para recuperar el cliente
+     *
+     * @return        null 
+     */
     public Cliente getCliente() {
         return null;
     }

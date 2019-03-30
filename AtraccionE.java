@@ -1,9 +1,8 @@
-
 /**
- * Write a description of class AtraccionE here.
+ * Clase que implementa la atracción e
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author: Miguel Traseira López
+ * @version marzo de 2019
  */
 public class AtraccionE extends Atraccion {
     /**
@@ -13,6 +12,11 @@ public class AtraccionE extends Atraccion {
         super(7, 1, true, true);  
     }
 
+    /**
+     * Método que comprueba si un cliente está admitido
+     * 
+     * @param  el cliente
+     */
     public boolean clienteAdmitido (Cliente cliente) {
         if (((cliente instanceof Adulto) || (cliente instanceof Senior))) {
             return true;

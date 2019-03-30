@@ -1,8 +1,7 @@
-
 /**
- * Write a description of class CarnetJoven here.
+ * Clase que implementa el descuento de un carnet joven
  * 
- * @author (your name) 
+ * @author: Miguel Traseira López 
  * @version (a version number or a date)
  */
 public class CarnetJoven extends IncrementarDescuento {
@@ -14,10 +13,9 @@ public class CarnetJoven extends IncrementarDescuento {
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Método para obtener el descuento
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return     el descuento 
      */
     public double getDescuento () {
         return super.getModDescuento();

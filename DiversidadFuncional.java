@@ -1,20 +1,21 @@
-
 /**
- * Write a description of class DiversidadFuncional here.
+ * Clase que implementa el descuento de diversidad funcional
  * 
- * @author (your name) 
+ * @author: Miguel Traseira López 
  * @version (a version number or a date)
  */
 public class DiversidadFuncional extends IncrementarDescuento {
+    /**
+     * Constructor for objects of class DiversidadFuncional
+     */
     public DiversidadFuncional(Cliente cliente) {
         super(cliente, 0.8);
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Método para obtener el descuento
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return     el descuento 
      */
     public double getDescuento () {
         return super.getModDescuento();

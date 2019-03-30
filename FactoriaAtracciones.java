@@ -1,8 +1,8 @@
 /**
- * Abstract class FactoriaAtracciones - write a description of the class here
+ * Abstract class FactoriaAtracciones - Clase abstracta que se ocupa de crear las atracciones
  * 
- * @author: 
- * Date: 
+ * @author: Miguel Traseira López
+ * Date: marzo de 2019
  */
 import java.util.ArrayList;
 
@@ -15,6 +15,10 @@ public abstract class FactoriaAtracciones {
     
     private static ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
     
+    /**
+     * Método estático que se encarga de construir las atracciones
+     * 
+     */
     public static void constructorAtracciones() {
         Atraccion atraccion;
         for (int i = 0; i < NUMTIPOA; i++) {
@@ -39,6 +43,11 @@ public abstract class FactoriaAtracciones {
         }
     }
     
+    /**
+     * Método que calcula los responsables totales
+     * 
+     * @return  los responsables totales
+     */
     public static int getResponsablesTotales() {
         int responsables = 0;
         for (Atraccion atraccion: atracciones) {
@@ -47,6 +56,11 @@ public abstract class FactoriaAtracciones {
         return responsables;
     }
     
+    /**
+     * Método que calcula los ayudantes totales
+     * 
+     * @return  los ayudantes totales
+     */
     public static int getAyudantesTotales() {
         int ayudantes = 0;
         for (Atraccion atraccion: atracciones) {
@@ -55,6 +69,11 @@ public abstract class FactoriaAtracciones {
         return ayudantes;
     }
     
+    /**
+     * Método que almacena las atracciones para después devolverlas
+     * 
+     * @return  las atracciones
+     */
     public static ArrayList<Atraccion> getAtracciones() {
         return atracciones;
     }

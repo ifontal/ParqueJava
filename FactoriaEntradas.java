@@ -1,9 +1,8 @@
-
 /**
- * Write a description of class FactoriaEntradas here.
+ * Abstract class FactoriaEntradas - Clase abstracta que crea las entradas
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author: Miguel Traseira López 
+ * @version marzo de 2019
  */
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -12,7 +11,12 @@ import java.lang.Character;
 
 public abstract class FactoriaEntradas {
     
-    
+    /**
+     * Método estático para obtener una entrada
+     * 
+     * @param  el tipo de entrada, si es vip o no y la fecha
+     * @return la entrada
+     */
     public static Entrada getEntrada(String tipoEntrada, boolean esVip, String fecha) {
         Scanner sc = new Scanner(System.in);
         

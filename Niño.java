@@ -14,10 +14,18 @@ public class Niño extends Cliente {
         super(edad, altura, modDescuento);  
     }
     
+    /**
+     * Método para poner el descuento de un cliente 
+     */
     public static void setDescuento (double d) {
         descuento = d;
     }
     
+    /**
+     * Método para poner la edad de un cliente
+     *
+     * @return        true si la edad es menor o igual a 12 años 
+     */
     public boolean setEdad(int edad) {
         if (edad <= 12) {
             setEdad(edad);
@@ -40,6 +48,11 @@ public class Niño extends Cliente {
         }
     }
     
+    /**
+     * Método para recuperar el cliente
+     *
+     * @return        null 
+     */
     public Cliente getCliente() {
         return null;
     }
