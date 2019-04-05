@@ -8,16 +8,16 @@ import java.time.*;
 import java.util.ArrayList;
 
 public abstract class AccesoParque {
-    private class Registro {
+    private static class Registro {
         private Cliente cliente;
-        private LocalDate fechaAct;
+        private LocalDate fecha;
         
         /**
         * Constructor de registro
         */
-        public Registro(Cliente cliente, String fecha){
+        public Registro(Cliente cliente, LocalDate fecha) {
            this.cliente = cliente;
-           this.fechaAct = LocalDate.parse(fecha);
+           this.fecha = fecha;
         }
         
         /**
@@ -25,38 +25,31 @@ public abstract class AccesoParque {
         * 
         * @return      el cliente 
         */
-        public Cliente getCliente(){
+        public Cliente getCliente() {
             return this.cliente;  
         }
        
         /**
-        * Método que devuelve la fecha actual
+        * Método que devuelve la fecha de un registro
         * 
         * @return      la fecha 
         */
-        public LocalDate getFechaAct(){
-            return this.fechaAct.now();  
+        public LocalDate getFecha() {
+            return this.fecha;
         }
     }
     
-    private static ArrayList<Registro> listaClientes;
-    
-    /**
-    * Constructor de AccesoParque
-    */
-    public AccesoParque(){
-        this.listaClientes = new ArrayList<Registro>();
-    }
+    private static ArrayList<Registro> listaClientes = new ArrayList<Registro>();
     
     /**
      * Método para obtener la lista de clientes con su correspondiente cliente y fecha de entrada al parque
      * 
      * @return      los clientes con sus fechas 
      */
-    public ArrayList<Registro> getRegistros(){
-        return this.listaClientes;
+    public static ArrayList<Registro> getRegistros(){
+        return listaClientes;
     }
-        
+    
     /**
      * Método estático que comprueba que la fecha de la entrada es correcta (día y hora actual)
      * 
@@ -68,14 +61,29 @@ public abstract class AccesoParque {
         LocalDate fecha = entrada.getFechaInicio();
         
         if(fecha.equals(LocalDate.now()) && LocalTime.now().isAfter(hora)){
-            //guardarclientes
+            Cliente cliente = entrada.getCliente();
+            Registro registro = new Registro(cliente, fecha);
+            listaClientes.add(registro);
             return true;
         } else {
             return false;
         }
     }
     
-    public static void mostrarEstadistica() {
+    public static void mostrarEstadisticas() {
+        LocalDate dia = listaClientes.get(0).getFecha();
+        int contador = 0;
+        
+        for (Registro registro: listaClientes) {
+            if (registro.getFecha().equals(dia)) {
+                contador++;
+            } else {
+                System.out.println("Clientes el " + dia.toString() + ": " + contador);
+                dia = registro.getFecha();
+                contador = 0;
+            }
+        }
+        System.out.println("Clientes el " + dia.toString() + ": " + contador);
     }
 }
 
