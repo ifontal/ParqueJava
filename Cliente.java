@@ -78,5 +78,10 @@ public abstract class Cliente {
      */
     public abstract double getDescuento();
     
+    /**
+     * Método para recuperar el cliente
+     *
+     * @return        el cliente 
+     */
     public abstract Cliente getCliente();
 }

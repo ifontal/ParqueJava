@@ -10,8 +10,8 @@ public class AtraccionC extends Atraccion {
     /**
      * Constructor for objects of class AtraccionC
      */
-    public AtraccionC() {
-        super(3, 1, false, true);  
+    public AtraccionC(String id) {
+        super(3, 1, false, true, id);  
     }
 
     /**

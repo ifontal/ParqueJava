@@ -11,8 +11,8 @@ public class AtraccionA extends Atraccion {
     /**
      * Constructor for objects of class AtraccionA
      */
-    public AtraccionA() {
-        super(6, 1, true, true);  
+    public AtraccionA(String id) {
+        super(6, 1, true, true, id);  
     }
 
     /**

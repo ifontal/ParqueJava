@@ -21,24 +21,30 @@ public abstract class FactoriaAtracciones {
      */
     public static void constructorAtracciones() {
         Atraccion atraccion;
+        String id;
         for (int i = 0; i < NUMTIPOA; i++) {
-            atraccion = new AtraccionA();
+            id = "A"+(i+1);
+            atraccion = new AtraccionA(id);
             atracciones.add(atraccion);
         }
         for (int i = 0; i < NUMTIPOB; i++) {
-            atraccion = new AtraccionB();
+            id = "B"+(i+1);
+            atraccion = new AtraccionB(id);
             atracciones.add(atraccion);
         }
         for (int i = 0; i < NUMTIPOC; i++) {
-            atraccion = new AtraccionC();
+            id = "C"+(i+1);
+            atraccion = new AtraccionC(id);
             atracciones.add(atraccion);
         }
         for (int i = 0; i < NUMTIPOD; i++) {
-            atraccion = new AtraccionD();
+            id = "D"+(i+1);
+            atraccion = new AtraccionD(id);
             atracciones.add(atraccion);
         }
         for (int i = 0; i < NUMTIPOE; i++) {
-            atraccion = new AtraccionE();
+            id = "E"+(i+1);
+            atraccion = new AtraccionE(id);
             atracciones.add(atraccion);
         }
     }

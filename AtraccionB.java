@@ -1,8 +1,8 @@
 /**
  * Clase que implementa la atracción b
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Miguel Traseira López 
+ * @version marzo de 2019
  */
 
 public class AtraccionB extends Atraccion {
@@ -12,8 +12,8 @@ public class AtraccionB extends Atraccion {
     /**
      * Constructor for objects of class AtraccionB
      */
-    public AtraccionB() {
-        super(5, 1, false, true);  
+    public AtraccionB(String id) {
+        super(5, 1, false, true, id);  
     }
 
     /**

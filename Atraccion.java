@@ -11,15 +11,19 @@ public abstract class Atraccion {
     private int numResponsables;
     private boolean admiteVip;
     private boolean activa;
+    private String id;
+    private ArrayList<Trabajador> trabajadores;
     
     /**
      * Constructor para objetos de clase Atraccion
      */
-    public Atraccion (int numAyudantes, int numResponsables, boolean admiteVip, boolean activa) {
+    public Atraccion (int numAyudantes, int numResponsables, boolean admiteVip, boolean activa, String id) {
         this.numAyudantes = numAyudantes;
         this.numResponsables = numResponsables;
         this.admiteVip = admiteVip;
         this.activa = activa;
+        this.id = id;
+        this.trabajadores = new ArrayList<Trabajador>();
     }
     
     /**
@@ -92,6 +96,30 @@ public abstract class Atraccion {
      */
     public boolean getActiva() {
         return this.activa;
+    }
+    
+    /** Método para añadir trabajador
+     * 
+     * @param   un trabajador
+     */
+    public void addTrabajador(Trabajador trabajador){
+        this.trabajadores.add(trabajador);
+    }
+    
+    /** Método para obtener el array de trabajadores
+     * 
+     * @return  la lista de trabajadores
+     */
+    public ArrayList<Trabajador> getTrabajadores(){
+        return this.trabajadores;
+    }
+    
+    /** Método para obtener el id de la atracción
+     * 
+     * @return  el id de la atracción
+     */
+    public String getId(){
+        return this.id;
     }
     
     public abstract boolean clienteAdmitido(Cliente cliente);

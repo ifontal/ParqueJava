@@ -8,8 +8,8 @@ public class AtraccionE extends Atraccion {
     /**
      * Constructor for objects of class AtraccionA
      */
-    public AtraccionE() {
-        super(7, 1, true, true);  
+    public AtraccionE(String id) {
+        super(7, 1, true, true, id);  
     }
 
     /**
