@@ -86,66 +86,95 @@ public abstract class AccesoParque {
     public static void mostrarEstadisticas(String tipo) {
         LocalDate fecha = listaClientes.get(0).getFecha();
         int contador = 0;
-        int contador2 = 1;
-        int contador3 = 0;
+        int totalPeriodo = 1;
+        int totalClientes = 0;
+        double precioTotal = 0;
         
         switch(tipo) {
             case "dia":
             for (Registro registro: listaClientes) {
                 if (registro.getFecha().equals(fecha)) {
                     contador++;
+                    precioTotal = precioTotal + registro.getPrecio();
                 } else {
                     System.out.println("Clientes el " + fecha.toString() + ": " + contador);
-                    contador2++;
-                    contador3 = contador3 + contador;
+                    System.out.println("Precio medio: " + precioTotal/contador);
                     fecha = registro.getFecha();
+                    precioTotal = registro.getPrecio();
                     contador = 1;
+                    totalPeriodo++;
                 }
+                totalClientes++;
             }
             System.out.println("Clientes el " + fecha.toString() + ": " + contador);
-            System.out.println("Promedio de clientes diario: " + contador3/contador2);
+            System.out.println("Precio medio: " + precioTotal/contador);
+            System.out.println("Promedio de clientes diario: " + totalClientes/totalPeriodo);
             break;
+            
             case "semana":
             int diaSemana = fecha.getDayOfWeek().getValue();
             fecha = fecha.minusDays(diaSemana-1);
             for (Registro registro: listaClientes) {
                 if (registro.getFecha().isBefore(fecha.plusDays(7))) {
                     contador++;
+                    precioTotal = precioTotal + registro.getPrecio();
                 } else {
                     System.out.println("Clientes la semana del " + fecha.toString()
                     + " al " + fecha.plusDays(6).toString() + ": " + contador);
+                    System.out.println("Precio medio: " + precioTotal/contador);
                     fecha = registro.getFecha();
                     diaSemana = fecha.getDayOfWeek().getValue();
                     fecha = fecha.minusDays(diaSemana-1);
+                    precioTotal = registro.getPrecio();
                     contador = 1;
+                    totalPeriodo++;
                 }
+                totalClientes++;
             }
             System.out.println("Clientes la semana del " + fecha.toString()
             + " al " + fecha.plusDays(6).toString() + ": " + contador);
+            System.out.println("Precio medio: " + precioTotal/contador);
+            System.out.println("Promedio de clientes semanal: " + totalClientes/totalPeriodo);
             break;
+            
             case "mes":
             for (Registro registro: listaClientes) {
                 if (registro.getFecha().getMonth().equals(fecha.getMonth())) {
                     contador++;
+                    precioTotal = precioTotal + registro.getPrecio();
                 } else {
                     System.out.println("Clientes en " + fecha.getMonth().toString() + ": " + contador);
+                    System.out.println("Precio medio: " + precioTotal/contador);
                     fecha = registro.getFecha();
+                    precioTotal = registro.getPrecio();
                     contador = 1;
+                    totalPeriodo++;
                 }
+                totalClientes++;
             }
             System.out.println("Clientes en " + fecha.getMonth().toString() + ": " + contador);
+            System.out.println("Precio medio: " + precioTotal/contador);
+            System.out.println("Promedio de clientes mensual: " + totalClientes/totalPeriodo);
             break;
+            
             case "año":
             for (Registro registro: listaClientes) {
                 if (registro.getFecha().getYear() == fecha.getYear()) {
                     contador++;
+                    precioTotal = precioTotal + registro.getPrecio();
                 } else {
                     System.out.println("Clientes en " + fecha.getYear() + ": " + contador);
+                    System.out.println("Precio medio: " + precioTotal/contador);
                     fecha = registro.getFecha();
+                    precioTotal = registro.getPrecio();
                     contador = 1;
+                    totalPeriodo++;
                 }
+                totalClientes++;
             }
             System.out.println("Clientes en " + fecha.getYear() + ": " + contador);
+            System.out.println("Precio medio: " + precioTotal/contador);
+            System.out.println("Promedio de clientes anual: " + totalClientes/totalPeriodo);
             break;
         }
     }
