@@ -11,13 +11,15 @@ public abstract class AccesoParque {
     private static class Registro {
         private Cliente cliente;
         private LocalDate fecha;
+        private double precio;
         
         /**
         * Constructor de registro
         */
-        public Registro(Cliente cliente, LocalDate fecha) {
+        public Registro(Cliente cliente, LocalDate fecha, double precio) {
            this.cliente = cliente;
            this.fecha = fecha;
+           this.precio = precio;
         }
         
         /**
@@ -36,6 +38,15 @@ public abstract class AccesoParque {
         */
         public LocalDate getFecha() {
             return this.fecha;
+        }
+        
+        /**
+        * Método que devuelve el precio de un registro
+        * 
+        * @return      el precio 
+        */
+        public double getPrecio() {
+            return this.precio;
         }
     }
     
@@ -60,9 +71,11 @@ public abstract class AccesoParque {
         LocalTime hora = entrada.getHoraInicio();
         LocalDate fecha = entrada.getFechaInicio();
         
-        if(fecha.equals(LocalDate.now()) && LocalTime.now().isAfter(hora)){
+        if(true){
+        //fecha.equals(LocalDate.now()) && LocalTime.now().isAfter(hora)){
             Cliente cliente = entrada.getCliente();
-            Registro registro = new Registro(cliente, fecha);
+            double precio = entrada.getPrecioEntrada();
+            Registro registro = new Registro(cliente, fecha, precio);
             listaClientes.add(registro);
             return true;
         } else {
@@ -70,20 +83,71 @@ public abstract class AccesoParque {
         }
     }
     
-    public static void mostrarEstadisticas() {
-        LocalDate dia = listaClientes.get(0).getFecha();
+    public static void mostrarEstadisticas(String tipo) {
+        LocalDate fecha = listaClientes.get(0).getFecha();
         int contador = 0;
+        int contador2 = 1;
+        int contador3 = 0;
         
-        for (Registro registro: listaClientes) {
-            if (registro.getFecha().equals(dia)) {
-                contador++;
-            } else {
-                System.out.println("Clientes el " + dia.toString() + ": " + contador);
-                dia = registro.getFecha();
-                contador = 0;
+        switch(tipo) {
+            case "dia":
+            for (Registro registro: listaClientes) {
+                if (registro.getFecha().equals(fecha)) {
+                    contador++;
+                } else {
+                    System.out.println("Clientes el " + fecha.toString() + ": " + contador);
+                    contador2++;
+                    contador3 = contador3 + contador;
+                    fecha = registro.getFecha();
+                    contador = 1;
+                }
             }
+            System.out.println("Clientes el " + fecha.toString() + ": " + contador);
+            System.out.println("Promedio de clientes diario: " + contador3/contador2);
+            break;
+            case "semana":
+            int diaSemana = fecha.getDayOfWeek().getValue();
+            fecha = fecha.minusDays(diaSemana-1);
+            for (Registro registro: listaClientes) {
+                if (registro.getFecha().isBefore(fecha.plusDays(7))) {
+                    contador++;
+                } else {
+                    System.out.println("Clientes la semana del " + fecha.toString()
+                    + " al " + fecha.plusDays(6).toString() + ": " + contador);
+                    fecha = registro.getFecha();
+                    diaSemana = fecha.getDayOfWeek().getValue();
+                    fecha = fecha.minusDays(diaSemana-1);
+                    contador = 1;
+                }
+            }
+            System.out.println("Clientes la semana del " + fecha.toString()
+            + " al " + fecha.plusDays(6).toString() + ": " + contador);
+            break;
+            case "mes":
+            for (Registro registro: listaClientes) {
+                if (registro.getFecha().getMonth().equals(fecha.getMonth())) {
+                    contador++;
+                } else {
+                    System.out.println("Clientes en " + fecha.getMonth().toString() + ": " + contador);
+                    fecha = registro.getFecha();
+                    contador = 1;
+                }
+            }
+            System.out.println("Clientes en " + fecha.getMonth().toString() + ": " + contador);
+            break;
+            case "año":
+            for (Registro registro: listaClientes) {
+                if (registro.getFecha().getYear() == fecha.getYear()) {
+                    contador++;
+                } else {
+                    System.out.println("Clientes en " + fecha.getYear() + ": " + contador);
+                    fecha = registro.getFecha();
+                    contador = 1;
+                }
+            }
+            System.out.println("Clientes en " + fecha.getYear() + ": " + contador);
+            break;
         }
-        System.out.println("Clientes el " + dia.toString() + ": " + contador);
     }
 }
 
