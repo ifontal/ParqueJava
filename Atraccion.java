@@ -5,14 +5,44 @@
  * Date: marzo de 2019
  */
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public abstract class Atraccion {
+    public class Registro{
+        private Cliente cliente;
+        private LocalDate fecha;
+        
+        public Registro(Cliente cliente, LocalDate fecha){
+            this.cliente = cliente;
+            this.fecha = fecha;
+        }
+        
+        /**
+        * Método que devuelve el cliente de un registro
+        * 
+        * @return      el cliente 
+        */
+        public Cliente getCliente(){
+            return this.cliente;  
+        }
+        
+        /**
+        * Método que devuelve la fecha de un registro
+        * 
+        * @return      la fecha 
+        */
+        public LocalDate getFecha(){
+            return this.fecha;  
+        }
+    }
+    
     private int numAyudantes;
     private int numResponsables;
     private boolean admiteVip;
     private boolean activa;
     private String id;
     private ArrayList<Trabajador> trabajadores;
+    private ArrayList<Registro> clientesAtraccion;
     
     /**
      * Constructor para objetos de clase Atraccion
@@ -24,6 +54,7 @@ public abstract class Atraccion {
         this.activa = activa;
         this.id = id;
         this.trabajadores = new ArrayList<Trabajador>();
+        this.clientesAtraccion = new ArrayList<Registro>();
     }
     
     /**
@@ -112,6 +143,25 @@ public abstract class Atraccion {
      */
     public ArrayList<Trabajador> getTrabajadores(){
         return this.trabajadores;
+    }
+    
+    /**
+    * Método para añadir un registro
+    * 
+    * @param un registro 
+    */
+    public void addRegistro(Cliente cliente, LocalDate fecha){
+        Registro registro = new Registro(cliente, fecha);
+        this.clientesAtraccion.add(registro);
+    }
+    
+    /**
+    * Método para devolver el array de registros
+    * 
+    * @return un registro 
+    */
+    public ArrayList<Registro> getRegistros(){
+        return this.clientesAtraccion;
     }
     
     /** Método para obtener el id de la atracción

@@ -4,6 +4,8 @@
  * @author: Miguel Traseira López
  * @version marzo de 2019
  */
+import java.time.LocalDate;
+
 public class AtraccionD extends Atraccion {
 
     /**
@@ -20,6 +22,7 @@ public class AtraccionD extends Atraccion {
      */
     public boolean clienteAdmitido (Cliente cliente) {
         if (((cliente instanceof Adulto) || (cliente instanceof Adulto) || (cliente instanceof Senior))) {
+            super.addRegistro(cliente, LocalDate.now());
             return true;
         } else {
             return false;

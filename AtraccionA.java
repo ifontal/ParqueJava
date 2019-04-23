@@ -4,6 +4,7 @@
  * @author: Miguel Traseira López
  * @version marzo de 2019
  */
+import java.time.LocalDate;
 
 public class AtraccionA extends Atraccion {
     private static double alturaMin = 1.20;
@@ -26,6 +27,7 @@ public class AtraccionA extends Atraccion {
         }
         if (((cliente instanceof Adulto) || (cliente instanceof Niño)
         || (cliente instanceof Senior)) && (cliente.getAltura() >= this.alturaMin)) {
+            super.addRegistro(cliente, LocalDate.now());
             return true;
         } else {
             return false;

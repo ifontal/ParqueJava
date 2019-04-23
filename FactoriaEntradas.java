@@ -30,8 +30,6 @@ public abstract class FactoriaEntradas {
         
         if(tipoEntrada.equals("general")) {
             return new EntradaGeneral(esVip, LocalDate.parse(fecha), cliente);
-        } else if (tipoEntrada.equals("reducida")) {
-            return new EntradaReducida(esVip, LocalDate.parse(fecha), cliente);
         } else if (tipoEntrada.equals("tardes")) {
             return new EntradaTardes(esVip, LocalDate.parse(fecha), cliente);
         } else if (tipoEntrada.equals("laborables")) {

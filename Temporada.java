@@ -67,8 +67,11 @@ public class Temporada {
     /**
      * Constructor for objects of class Temporada
      */
-    public Temporada() {
+    public Temporada(String[][] fechas) {
         this.fechas = new ArrayList<IntervaloFechas>();
+        for (int i = 0; i < fechas.length; i++) {
+            addFechas(fechas[i][0], fechas[i][1]);
+        }
     }
     
     /**
