@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.lang.Character;
 
 public abstract class FactoriaEntradas {
+    private static ArrayList<Entrada> arrayEntradas = new ArrayList<Entrada>();
     
     /**
      * Método estático para obtener una entrada
@@ -17,14 +18,7 @@ public abstract class FactoriaEntradas {
      * @param  el tipo de entrada, si es vip o no y la fecha
      * @return la entrada
      */
-    public static Entrada getEntrada(String tipoEntrada, boolean esVip, String fecha) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("¿Cuál es su edad?: ");
-        int edad = sc.nextInt();
-        
-        System.out.println("¿Cuál es su altura?: ");
-        double altura = sc.nextDouble();
+    public static Entrada getEntrada(String tipoEntrada, boolean esVip, String fecha, int edad, double altura) {
 
         Cliente cliente = FactoriaClientes.getCliente(edad, altura);
         
@@ -46,5 +40,13 @@ public abstract class FactoriaEntradas {
         } else {
             return null;
         }
+    }
+    
+    /**
+     * Método estático para obtener la lista de entradas
+     * @return la lista de entradas
+     */
+    public static ArrayList<Entrada> getListaEnt(){
+        return arrayEntradas;
     }
 }

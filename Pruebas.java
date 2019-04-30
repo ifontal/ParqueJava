@@ -6,6 +6,7 @@
  */
 import java.time.LocalDate;
 import java.util.Random;
+import java.util.ArrayList;
 
 public abstract class Pruebas {
     private static final int nNiños = 5;
@@ -18,9 +19,7 @@ public abstract class Pruebas {
         int edad;
         double altura;
         Random r = new Random();
-        
-        FactoriaAtracciones.constructorAtracciones();
-        FactoriaTrabajadores.crearTrabajadores();
+        ArrayList<Entrada> arrayEntradas = FactoriaEntradas.getListaEnt();
         
         for (int i = 0; i < nNiños; i++) {
             edad = r.nextInt(10)+2;
@@ -28,6 +27,7 @@ public abstract class Pruebas {
             altura = Math.round(altura*100d)/100d;
             cliente = new Niño(edad, altura, 1);
             entrada = new EntradaGeneral(false, LocalDate.now(), cliente);
+            arrayEntradas.add(entrada);
             AccesoParque.entradaParque(entrada);
         }
         for (int i = 0; i < nAdultos; i++) {
@@ -36,6 +36,7 @@ public abstract class Pruebas {
             altura = Math.round(altura*100d)/100d;
             cliente = new Adulto(edad, altura, 1);
             entrada = new EntradaGeneral(false, LocalDate.now(), cliente);
+            arrayEntradas.add(entrada);
             AccesoParque.entradaParque(entrada);
         }
         for (int i = 0; i < nSenior; i++) {
@@ -44,7 +45,9 @@ public abstract class Pruebas {
             altura = Math.round(altura*100d)/100d;
             cliente = new Senior(edad, altura, 1);
             entrada = new EntradaGeneral(false, LocalDate.now(), cliente);
+            arrayEntradas.add(entrada);
             AccesoParque.entradaParque(entrada);
         }
+        
     }
 }
