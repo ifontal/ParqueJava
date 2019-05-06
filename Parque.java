@@ -199,7 +199,7 @@ public abstract class Parque {
                 }
                 break;
                 case 3:
-                SubirseAtraccion.subiseAtraccion();
+                SubirseAtraccion.subirseAtraccion();
                 break;
                 case 4:
                 System.out.println("Qué tipo de estadísticas desea que se le muestren?");

@@ -13,7 +13,7 @@ public abstract class SubirseAtraccion {
      * Método para comprobar si un cliente se puede subir a una atracción del parque
      * 
      */
-    public static void subiseAtraccion(){
+    public static void subirseAtraccion(){
         ArrayList<Atraccion> atracciones = FactoriaAtracciones.getAtracciones();
         ArrayList<AccesoParque.Registro> listaClientes = AccesoParque.getRegistros();
         int contador = 0;
